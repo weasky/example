@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block body %}
+<h1>{{title}}</h1><em>{{date|humanizeTime}} ago</em>
+<p>{{text|markdown}}</p>
+<a href="/">index</a>
+{% endblock %}

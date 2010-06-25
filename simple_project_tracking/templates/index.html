@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block body %}
+  <h2>Existing Projects:</h2>
+  <ul class=projs>
+  {% for proj in projs %}
+    <li><h3>{{ proj.title }}: {{ proj.description }}</h3>
+  {% else %}
+    <li><em>Nothing here yet!</em>
+  {% endfor %}
+  </ul>
+  <h2>Existing Clients:</h2>
+  <ul class=clients>
+  {% for client in clients %}
+    <li><h3>{{ client.name }}, {{ client.department }}</h3>
+  {% else %}
+    <li><em>Nothing here yet!</em>
+  {% endfor %}
+  </ul>
+{% endblock %}

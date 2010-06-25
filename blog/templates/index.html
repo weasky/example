@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block body %}
+<h1 class="title">{{title}}</h1>
+<a href='/add'>Nouveau</a><br/>
+{%for p in posts: %}
+<div class="post">
+  <h2><a href="/view/{{p._id}}">{{p.title}}</a></h2>
+  <span class="timestamp">{{p.date|humanizeTime}} ago</span>
+  <p>{{p.text|markdown}}</p>
+  <a href="/delete/{{p._id}}">Delete</a>
+   <a href="/edit/{{p._id}}">Edit</a>
+</div>
+{%endfor%}
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% from "_formhelpers.html" import render_field %}
+{% block body %}
+  {% if g.user %}
+    <h2>Add a project</h2>
+    <form method="post" action="">
+      <dl>
+        {{ render_field(form.title) }}
+        {{ render_field(form.description) }}
+        {{ render_field(form.client_id) }}
+      </dl>
+      <dl>
+        <h2>If new client, add here:</h2>
+        {{ render_field(form.name) }}
+        {{ render_field(form.department) }}
+      </dl>
+      <p><input type=submit value=Add></p>
+    </form>
+  {% endif %}
+  
+  <h3>Existing Projects:</h3>
+  <ul class=projs>
+  {% for proj in projs %}
+    <li>
+        {{ proj.title }}
+        {% if proj.name %}
+            for {{ proj.name }}
+        {% endif %}
+        <span class="small">
+            ( Created: {{ proj.created|tsformat('%Y-%m-%d') }}; 
+              Updated: {{ proj.updated|tsformat('%Y-%m-%d %H:%M') }} )
+        </span>
+    </li>
+  {% else %}
+    <li>Nothing here yet!</li>
+  {% endfor %}
+  </ul>
+{% endblock %}

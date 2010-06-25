@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block body %}
+<h1>{{title}}</h1>
+
+{% if form.errors %}
+<ul class="errors">
+  {% for field_name, field_errors in form.errors.items(): %}
+  {% for error in field_errors: %}
+  <li>{{ form[field_name].label }}: {{ error }}</li>
+  {% endfor %}
+  {% endfor %}
+</ul>
+{% endif %}
+
+<form method="POST" action="{{action_url}}">
+  {{form.object_id()}}
+  <label for="{{form.title.name}}">{{form.title.label}}</label> {{ form.title(size=50) }}
+  <label for="{{form.text.name}}">{{form.text.label}}</label> {{ form.text(rows=25, cols=50) }}
+  <input type="submit" value="Sauver"/>
+</form>
+{% endblock %}
+

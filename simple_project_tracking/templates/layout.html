@@ -1,0 +1,26 @@
+<!doctype html>
+<title>Simple Project Tracking</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+
+<div class=page>
+  <h1><a href="/">Simple Project Tracking</a></h1>
+  <div class=metanav>
+  
+  <a href="{{ url_for('clients') }}">clients</a>
+  <a href="{{ url_for('projects') }}">projects</a>
+  
+  <a href="{{ url_for('edit_client') }}">edit client</a>
+  <a href="{{ url_for('edit_project') }}">edit project</a>
+  
+  {% if g.user %}
+    <a href="{{ url_for('logout') }}">log out</a>
+  {% else %}
+    <a href="{{ url_for('login') }}">log in</a>
+    <a href="{{ url_for('register') }}">register</a>
+  {% endif %}
+  </div>
+  {% for message in get_flashed_messages() %}
+    <div class=flash>{{ message }}</div>
+  {% endfor %}
+  {% block body %}{% endblock %}
+</div>

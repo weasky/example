@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {{ document.title }}
+{% endblock %}
+
+{% block extra_js %}
+  <script type="text/javascript" src="/static/jquery.js"></script>
+  <script type="text/javascript">
+    <!--
+    $(document).ready(function() {
+
+      $(".spxcmt").append(' <a href="#" class="sphinx_comment"><img src="/static/comment.png" alt="comment" /></a>');
+      $("a.sphinx_comment").click(function() {
+        id = $(this).parent().attr('id');
+        alert('[ comment stub ' + id + ' ]');
+        return false;
+      });
+    });
+    -->
+  </script>
+
+{% endblock %}
+
+{% block relbar1 %}
+  {{ document.relbar|safe }}
+{% endblock %}
+
+{% block body %}
+  {{ document.body|safe }}
+{% endblock %}
+
+{% block sidebar %}
+  {{ document.sidebar|safe }}
+{% endblock %}
+
+{% block relbar2 %}
+  {{ document.relbar|safe }}
+{% endblock %}

@@ -1,0 +1,21 @@
+syntax: glob
+
+# bytecode
+*.pyc
+
+# backup
+*~
+
+# database files
+*.db
+
+# swap files (vim)
+*.swp
+
+# log files
+*.txt
+
+# virtualenv-related
+build/**
+env/**
+

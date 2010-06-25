@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block title %}Edit Client{% endblock %}
+{% block body %}
+  {% if g.user %}
+    <h3>Existing Clients:</h3>
+    {% for client in clients %}
+      <form method=post action="">
+        <dl>
+          <input type="hidden" name="id" value="{{ client.id }}" />
+          <dt>Name:
+          <dd><input type="text" name="name" value="{{ client.name }}" />
+          <dt>Department:
+          <dd><input type="text" name="department" value="{{ client.department }}" />
+          <p>
+            <input type=submit value="Edit">
+            <input type=submit name=delete value="Delete">
+          </p>
+        </dl>
+      </form>
+    {% else %}
+      <ul>
+      <em>Nothing here yet!</em>
+      </ul>
+    {% endfor %}
+  {% else %}
+    <p>Log in to edit clients.</p>
+  {% endif %}
+{% endblock %}

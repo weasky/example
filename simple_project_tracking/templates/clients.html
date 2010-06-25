@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% from "_formhelpers.html" import render_field %}
+{% block body %}
+  {% if g.user %}
+    <h2>Add a client</h2>
+    <form method="post" action="/clients">
+      <dl>
+        {{ render_field(form.name) }}
+        {{ render_field(form.department) }}
+      </dl>
+      <p><input type=submit value=Add>
+    </form>
+  {% endif %}
+    <h3>Existing Clients:</h3>
+    <ul class=clients>
+      {% for client in clients %}
+        <li>
+            {{ client.name }}, {{ client.department }}
+            <span class="small">
+                ( Created: {{ client.created|tsformat('%Y-%m-%d') }}; 
+                  Updated: {{ client.updated|tsformat('%Y-%m-%d %H:%M') }} )
+            </span>
+        </li>
+      {% else %}
+        <li>Nothing here yet!</li>
+      {% endfor %}
+    </ul>
+{% endblock %}

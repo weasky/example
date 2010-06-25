@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block title %}Register{% endblock %}
+{% block body %}
+  <h2>Register</h2>
+  {% if error %}<div class=error><strong>Error:</strong>{{ error }}</div>{% endif %}
+  <form action="" method=post>
+    <dl>
+      <dt>Username:
+      <dd><input type=text name=username size=30 value="{{ request.form.username }}">
+      <dt>E-mail address:
+      <dd><input type=text name=email size=30 value="{{ request.form.email }}">
+      <dt>Password:
+      <dd><input type=password name=password size=30>
+      <dt>Be a pal and enter your password again, pretty please:
+      <dd><input type=password name=password2 size=30>
+    </dl>
+    <div class=actions><input type=submit value="register"></div>
+  </form>
+{% endblock %}
