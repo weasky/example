@@ -1,0 +1,12 @@
+[submodule "brightonpy.org"]
+	path = brightonpy.org
+	url = git://github.com/j4mie/brightonpy.org.git
+[submodule "pgrouting"]
+    path = pgrouting
+    url = git://github.com/fredj/pgrouting.git
+[submodule "flask"]
+    path = flask
+    url = git://github.com/mitsuhiko/flask.git
+[submodule "rdreiflask"]
+    path = rdreiflask
+    url = git://github.com/passy/rdreiflask.git
